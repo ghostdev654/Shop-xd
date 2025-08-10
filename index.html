@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Web - Tema Oscuro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Mi Tienda</h1>
+            <nav>
+                <button onclick="showLogin()" class="nav-btn">Iniciar Sesión</button>
+                <div id="cart-icon" class="cart-icon">
+                    🛒 <span id="cart-count">0</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="products-container" id="products-container">
+            <!-- Los productos se cargarán dinámicamente -->
+        </div>
+    </main>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <input type="tel" id="phone" placeholder="Número de teléfono" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+                <p>¿No tienes cuenta? <a href="#" onclick="showRegister()">Crear cuenta</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegister()">&times;</span>
+            <h2>Crear Cuenta</h2>
+            <form id="register-form">
+                <input type="text" id="reg-name" placeholder="Nombre completo" required>
+                <input type="tel" id="reg-phone" placeholder="Número de teléfono" required>
+                <input type="password" id="reg-password" placeholder="Contraseña" required>
+                <input type="password" id="reg-confirm" placeholder="Confirmar contraseña" required>
+                <button type="submit">Crear Cuenta</button>
+                <p>¿Ya tienes cuenta? <a href="#" onclick="showLogin()">Iniciar sesión</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Carrito -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <p>Total: $<span id="cart-total">0</span></p>
+                <button onclick="checkout()" class="checkout-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
