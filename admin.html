@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Panel de Administración</h1>
+            <button onclick="logout()" class="logout-btn">Cerrar Sesión</button>
+        </header>
+
+        <nav class="admin-nav">
+            <button onclick="showProducts()" class="active">Productos</button>
+            <button onclick="showOrders()">Pedidos</button>
+        </nav>
+
+        <!-- Gestión de Productos -->
+        <div id="products-section" class="admin-section">
+            <h2>Gestión de Productos</h2>
+            <button onclick="showAddProduct()" class="add-btn">Agregar Producto</button>
+            
+            <div class="products-list" id="admin-products-list">
+                <!-- Lista de productos se carga dinámicamente -->
+            </div>
+
+            <!-- Modal para agregar/editar producto -->
+            <div id="product-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeProductModal()">&times;</span>
+                    <h3 id="product-modal-title">Agregar Producto</h3>
+                    <form id="product-form">
+                        <input type="hidden" id="product-id">
+                        <input type="text" id="product-name" placeholder="Nombre del producto" required>
+                        <textarea id="product-description" placeholder="Descripción" required></textarea>
+                        <input type="number" id="product-price" placeholder="Precio" step="0.01" required>
+                        <input type="url" id="product-image" placeholder="URL de la imagen" required>
+                        <input type="number" id="product-stock" placeholder="Stock" required>
+                        <button type="submit" id="product-submit">Agregar Producto</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gestión de Pedidos -->
+        <div id="orders-section" class="admin-section" style="display: none;">
+            <h2>Pedidos</h2>
+            <div class="orders-list" id="orders-list">
+                <!-- Lista de pedidos se carga dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
